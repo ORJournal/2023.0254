@@ -59,7 +59,7 @@ The scripts are located [here](https://github.com/ORJournal/2023.0254/tree/maste
 
 ## Ongoing Development
 
-These examples in the paper are part of the examples in the [InvOpt](https://github.com/pedroszattoni/InvOpt) package.
+The examples in the paper are part of the examples in the [InvOpt](https://github.com/pedroszattoni/InvOpt) package.
 
 ## Support
 
