@@ -30,7 +30,7 @@ Below is the BibTex for citing this snapshot of the repository.
 
 ## Description
 
-The goal of this software is to replicate the numerical experiments in the paper "Learning in Inverse Optimization: Incenter Cost, Augmented Suboptimality Loss, and Algorithms" by Pedro Zattoni Scroccaro, Bilge Atasoy, and Peyman Mohajerin Esfahani.
+The goal of this repository is to replicate the numerical experiments in the paper "Learning in Inverse Optimization: Incenter Cost, Augmented Suboptimality Loss, and Algorithms" by Pedro Zattoni Scroccaro, Bilge Atasoy, and Peyman Mohajerin Esfahani.
 
 ## Dependencies
 
@@ -59,7 +59,7 @@ The scripts are located [here](https://github.com/ORJournal/2023.0254/tree/maste
 
 ## Ongoing Development
 
-These examples are part of the examples in the [InvOpt](https://github.com/pedroszattoni/InvOpt) package.
+These examples in the paper are part of the examples in the [InvOpt](https://github.com/pedroszattoni/InvOpt) package.
 
 ## Support
 
