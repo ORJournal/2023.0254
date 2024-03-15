@@ -24,7 +24,7 @@ Below is the BibTex for citing this snapshot of the repository.
   title =         {{Learning in Inverse Optimization: Incenter Cost, Augmented Suboptimality Loss, and Algorithms}},
   year =          {2024},
   doi =           {10.1287/opre.2023.0254.cd},
-  note =           {Available for download at https://github.com/ORJournal/2023.0254},
+  note =          {Available for download at https://github.com/ORJournal/2023.0254},
 }  
 ```
 
