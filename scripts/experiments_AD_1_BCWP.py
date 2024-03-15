@@ -11,10 +11,15 @@ Author: Pedro Zattoni Scroccaro
 import time
 import numpy as np
 import gurobipy as gp
-import invopt as iop
 from sklearn import svm
 from sklearn import kernel_ridge
 from utils import mean_percentiles, L1
+from os.path import dirname, abspath
+import sys
+
+path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
+sys.path.append(path_to_project + '\src')  # nopep8
+import main as iop
 
 np.random.seed(0)
 
@@ -142,7 +147,7 @@ train_test_slip = 0.1
 runs = 20
 kappa = 10**3
 
-path_to_data = 'path/to/data'
+path_to_data = path_to_project + r'\data\wpbc_data.csv'
 
 print('')
 print(f'train_test_slip = {train_test_slip}')

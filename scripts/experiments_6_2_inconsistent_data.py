@@ -8,10 +8,15 @@ import time
 import numpy as np
 import cvxpy as cp
 import gurobipy as gp
-import invopt as iop
 from utils import (
     binary_linear_FOP, linear_ind_func, linear_phi, L2, plot_results
 )
+from os.path import dirname, abspath
+import sys
+
+path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
+sys.path.append(path_to_project + '\src')  # nopep8
+import main as iop
 
 np.random.seed(0)
 

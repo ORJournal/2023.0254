@@ -8,11 +8,16 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
-import invopt as iop
 from utils import (
     binary_linear_FOP, linear_phi, L2, linear_ind_func, L1, mean_percentiles,
     colors
 )
+from os.path import dirname, abspath
+import sys
+
+path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
+sys.path.append(path_to_project + '\src')  # nopep8
+import main as iop
 
 np.random.seed(0)
 
@@ -127,7 +132,7 @@ normalize_grad = True
 time_limit_approx = 0.03
 step_size_constant = 1
 
-path_to_data = 'path/to/dataset/'
+path_to_data = path_to_project + r'\data\dataset_FOM.p'
 
 print('')
 print(f'N_train = {N_train}')
@@ -185,7 +190,7 @@ print('')
 # print('')
 
 # Load pre-computed dataset
-data = pickle.load(open(path_to_data + 'dataset_FOM.p', "rb"))
+data = pickle.load(open(path_to_data, "rb"))
 theta_true_list = data['theta_true_list']
 dataset_train_list = data['dataset_train_list']
 dataset_test_list = data['dataset_test_list']
