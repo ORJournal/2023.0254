@@ -37,7 +37,6 @@ The goal of this repository is to replicate the numerical experiments in the pap
 The code in this repository requires the following dependencies. The dependency version number corresponds to the version of the package with which the code was tested.
 
 - [Python](https://www.python.org/) - 3.10.11
-- [InvOpt](https://github.com/pedroszattoni/InvOpt) - 0.0.7
 - [NumPy](https://numpy.org/) - 1.24.3
 - [Gurobi / gurobipy](https://www.gurobi.com/) - 10.0.1. **Note**: to use Gurobi, you need a valid license. You can get a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/).
 - [matplotlib](https://matplotlib.org/) - 3.7.1
