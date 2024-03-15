@@ -18,13 +18,13 @@ https://doi.org/10.1287/opre.2023.0254.cd
 Below is the BibTex for citing this snapshot of the repository.
 
 ```
-@article{zattoniscroccaro2023learning,
+@misc{zattoniscroccaro2023learning,
   author =        {Zattoni Scroccaro, Pedro and Atasoy, Bilge and Mohajerin Esfahani, Peyman},
   publisher =     {Operations Research},
   title =         {{Learning in Inverse Optimization: Incenter Cost, Augmented Suboptimality Loss, and Algorithms}},
   year =          {2024},
   doi =           {10.1287/opre.2023.0254.cd},
-  url =           {https://github.com/ORJournal/2023.0254},
+  note =           {Available for download at https://github.com/ORJournal/2023.0254},
 }  
 ```
 
