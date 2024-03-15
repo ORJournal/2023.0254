@@ -24,7 +24,7 @@ Below is the BibTex for citing this snapshot of the repository.
   title =         {{Learning in Inverse Optimization: Incenter Cost, Augmented Suboptimality Loss, and Algorithms}},
   year =          {2024},
   doi =           {10.1287/opre.2023.0254.cd},
-  note =          {Available for download at https://github.com/ORJournal/2023.0254},
+  note =           {Available for download at https://github.com/ORJournal/2023.0254},
 }  
 ```
 
@@ -39,29 +39,29 @@ The code in this repository requires the following dependencies. The dependency 
 - [Python](https://www.python.org/) - 3.10.11
 - [InvOpt](https://github.com/pedroszattoni/InvOpt) - 0.0.7
 - [NumPy](https://numpy.org/) - 1.24.3
-- [Gurobi / gurobipy](https://www.gurobi.com/) - 10.0.1. **Note**: to use Gurobi, you need a valid license. You can get a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/).
+- [Gurobi / gurobipy](https://www.gurobi.com/) - 10.0.1. **Note**: to use Gurobi, you need a valid license. You can get a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/.
 - [matplotlib](https://matplotlib.org/) - 3.7.1
 - [polytope](https://tulip-control.github.io/polytope/) - 0.2.3
 - [CVXPY](https://www.cvxpy.org/) - 1.3.1
 
 ## Replicating results
 
-The scripts are located the `scripts` folder, the source code for the algorithms and methods developed in the paper is located in the `src` folder, and the data in located in the `data` folder.
+The scripts are located in the `scripts` folder, the source code for the algorithms and methods developed in the paper is located in the `src` folder, and the data is located in the `data` folder.
 
 - To replicate the results in Section 6.1, as well as their respective results in Appendix D.2, run the script `experiments_6_1_consistent_data.py`.
 - To replicate the results in Section 6.2, as well as their respective results in Appendix D.2, run the script `experiments_6_2_inconsistent_data.py`.
 - To replicate the results in Section 6.3, as well as their respective results in Appendix D.2, run the script `experiments_6_3_mixed_integer.py`.
-- To replicate the results of Figure 6a  in Section 6.4, as well as the results in Appendix D.3, run the script `experiments_6_4_SAMD.py`. **Note 1**: before running the script, the variable `path_to_data` needs to be edited so that it is equal to the complete path to the location of the data `dataset_FOM.p`. This data corresponds to precomputed training and test datasets. **Note 2**: the exact results of this experiment depend on the runtime of each iteration of the algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
-- To replicate the results of Figure 6b  in Section 6.4, run the script `experiments_6_4_SAMD_batches.py`. **Note 1**: before running the script, the variable `path_to_data` needs to be edited so that it is equal to the complete path to the location of the data `dataset_FOM.p`. This data corresponds to precomputed training and test datasets. **Note 2**: the exact results of this experiment depend on the runtime of each iteration of the algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
-- To replicate the results of Appendix D.1, run the script `experiments_AD_1_BCWP.py`. **Note**: before running the script, the variable `path_to_data` needs to be edited so that it is equal to the complete path to the location of the data `wpbc_data.csv`. This data corresponds the [Breast Cancer Wisconsin Prognostic dataset](https://archive.ics.uci.edu/dataset/16/breast+cancer+wisconsin+prognostic).
+- To replicate the results of Figure 6a  in Section 6.4, as well as the results in Appendix D.3, run the script `experiments_6_4_SAMD.py`. **Note**: the exact results of this experiment depend on the runtime of each iteration of the algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
+- To replicate the results of Figure 6b  in Section 6.4, run the script `experiments_6_4_SAMD_batches.py`. **Note**: the exact results of this experiment depend on the runtime of each iteration of the algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
+- To replicate the results of Appendix D.1, run the script `experiments_AD_1_BCWP.py`.
 
-**Warning 1**: the scripts in the `scripts` folder use a relative path to import from the `src` folder and from the `data` folder. 
+**Warning 1**: the scripts in the `scripts` folder use a relative path to import from the `src` and `data` folders. 
 
 **Warning 2**: it may take hours to replicate some of the results in the paper. Tables 1, 2, and 3 in the paper show an estimate of the time required to replicate the results of Sections 6.1, 6.2, and 6.3. To quickly test the scripts in simpler examples, change the simulation parameters in the scripts to decrease the size of the datasets, the dimensions of the problem, the resolution of the plots, and/or the number of runs (i.e., the number of times the experiment is repeated).  
 
 ## Ongoing Development
 
-This code is being developed on an on-going basis at the author-maintained [InvOpt](https://github.com/pedroszattoni/InvOpt) python package. In particular, the source code in the `src` folder corresponds to `invopt 0.0.7`.
+This code is being developed on an ongoing basis at the author-maintained [InvOpt](https://github.com/pedroszattoni/InvOpt) Python package. In particular, the source code in the `src` folder corresponds to `invopt 0.0.7`.
 
 ## Support
 
