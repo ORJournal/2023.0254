@@ -39,7 +39,7 @@ The code in this repository requires the following dependencies. The dependency 
 - [Python](https://www.python.org/) - 3.10.11
 - [InvOpt](https://github.com/pedroszattoni/InvOpt) - 0.0.7
 - [NumPy](https://numpy.org/) - 1.24.3
-- [Gurobi / gurobipy](https://www.gurobi.com/) - 10.0.1. **Note**: to use Gurobi, you need a valid license. You can get a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/.
+- [Gurobi / gurobipy](https://www.gurobi.com/) - 10.0.1. **Note**: to use Gurobi, you need a valid license. You can get a free academic license [here](https://www.gurobi.com/academia/academic-program-and-licenses/).
 - [matplotlib](https://matplotlib.org/) - 3.7.1
 - [polytope](https://tulip-control.github.io/polytope/) - 0.2.3
 - [CVXPY](https://www.cvxpy.org/) - 1.3.1
@@ -51,9 +51,11 @@ The scripts are located in the `scripts` folder, the source code for the algorit
 - To replicate the results in Section 6.1, as well as their respective results in Appendix D.2, run the script `experiments_6_1_consistent_data.py`.
 - To replicate the results in Section 6.2, as well as their respective results in Appendix D.2, run the script `experiments_6_2_inconsistent_data.py`.
 - To replicate the results in Section 6.3, as well as their respective results in Appendix D.2, run the script `experiments_6_3_mixed_integer.py`.
-- To replicate the results of Figure 6a  in Section 6.4, as well as the results in Appendix D.3, run the script `experiments_6_4_SAMD.py`. **Note**: the exact results of this experiment depend on the runtime of each iteration of the algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
-- To replicate the results of Figure 6b  in Section 6.4, run the script `experiments_6_4_SAMD_batches.py`. **Note**: the exact results of this experiment depend on the runtime of each iteration of the algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
+- To replicate the results of Figure 6a  in Section 6.4, as well as the results in Appendix D.3, run the script `experiments_6_4_SAMD.py`.
+- To replicate the results of Figure 6b  in Section 6.4, run the script `experiments_6_4_SAMD_batches.py`. 
 - To replicate the results of Appendix D.1, run the script `experiments_AD_1_BCWP.py`.
+
+**Note**: the exact results from `experiments_6_4_SAMD.py` and `experiments_6_4_SAMD_batches.py` depend on the runtime of each iteration of the SAMD algorithm, thus, they will change for different hardware specifications. The results shown in the paper were computed using 1 thread of an Intel Xeon Gold 5218 CPU with a 2.30GHz clock speed and 32GB of RAM.
 
 **Warning 1**: the scripts in the `scripts` folder use a relative path to import from the `src` and `data` folders. 
 
