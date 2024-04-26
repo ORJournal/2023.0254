@@ -12,11 +12,11 @@ from utils import (
     binary_linear_FOP, linear_phi, L2, linear_ind_func, L1, mean_percentiles,
     colors
 )
-from os.path import dirname, abspath
+from os.path import dirname, abspath, join
 import sys
 
 path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
-sys.path.append(path_to_project + '\src')  # nopep8
+sys.path.append(join(path_to_project, 'src'))  # nopep8
 import main as iop
 
 np.random.seed(0)
@@ -136,7 +136,7 @@ batch_ratio = 0.1
 time_limit_approx = 0.03
 step_size_constant = 1
 
-path_to_data = path_to_project + r'\data\dataset_FOM.p'
+path_to_data = join(path_to_project, 'data', 'dataset_FOM.p')
 
 print('')
 print(f'N_train = {N_train}')
@@ -205,13 +205,13 @@ loss_opt_list = data['loss_opt_list']
 # %%%%%%%%%%%%%%%%%%%%%%%%%%% Solve IO approach %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-# SM: subgradient method.
-# MD: mirror-descent. For this case, it corresponds to an exponentiated
-#   subgradient method.
-# SSM: stochastic subgradient method.
-# ASM: approximate subgradient method.
-# SMD: stochastic mirror descent
-# AMD: approximate mirror descent
+# SM:   subgradient method.
+# MD:   mirror-descent. For this case, it corresponds to an exponentiated
+#       subgradient method.
+# SSM:  stochastic subgradient method.
+# ASM:  approximate subgradient method.
+# SMD:  stochastic mirror descent
+# AMD:  approximate mirror descent
 # SASM: stochastic approximate subgradient method
 # SAMD: stochastic approximate mirror descent
 approaches = ['SM', 'MD', 'SSM', 'ASM', 'SMD', 'AMD', 'SASM', 'SAMD']
@@ -368,6 +368,10 @@ for approach in approaches:
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%% Plot results %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+results_folder = join(
+    path_to_project, 'results', 'experiments_6_4_SAMD'
+)
+
 for a_index, approach in enumerate(approaches):
     # Retrieve results
     x_diff_train_appro = x_diff_train_hist[a_index]
@@ -429,6 +433,7 @@ for a_index, approach in enumerate(approaches):
     plt.grid(visible=True)
     plt.legend(fontsize='14', loc='upper right')
     plt.tight_layout()
+    plt.savefig(join(results_folder, 'fig1.png'), format='png', dpi=200)
 
     plt.figure(2)
     plt.plot(timestamps, x_diff_train_mean, c=color, label=approach)
@@ -442,6 +447,7 @@ for a_index, approach in enumerate(approaches):
     plt.grid(visible=True)
     plt.legend(fontsize='14', loc='upper right')
     plt.tight_layout()
+    plt.savefig(join(results_folder, 'fig2.png'), format='png', dpi=200)
 
     plt.figure(3)
     plt.plot(timestamps, obj_diff_train_mean, c=color, label=approach)
@@ -458,6 +464,7 @@ for a_index, approach in enumerate(approaches):
     plt.grid(visible=True)
     plt.legend(fontsize='14', loc='upper right')
     plt.tight_layout()
+    plt.savefig(join(results_folder, 'fig3.png'), format='png', dpi=200)
 
     plt.figure(4)
     plt.plot(timestamps, x_diff_test_mean, c=color, label=approach)
@@ -470,6 +477,7 @@ for a_index, approach in enumerate(approaches):
     plt.grid(visible=True)
     plt.legend(fontsize='14', loc='upper right')
     plt.tight_layout()
+    plt.savefig(join(results_folder, 'fig4.png'), format='png', dpi=200)
 
     plt.figure(5)
     plt.plot(timestamps, obj_diff_test_mean, c=color, label=approach)
@@ -486,6 +494,7 @@ for a_index, approach in enumerate(approaches):
     plt.grid(visible=True)
     plt.legend(fontsize='14', loc='upper right')
     plt.tight_layout()
+    plt.savefig(join(results_folder, 'fig5.png'), format='png', dpi=200)
 
     plt.figure(6)
     plt.plot(timestamps, loss_diff_mean, c=color, label=approach)
@@ -498,3 +507,4 @@ for a_index, approach in enumerate(approaches):
     plt.grid(visible=True)
     plt.legend(fontsize='14', loc='upper right')
     plt.tight_layout()
+    plt.savefig(join(results_folder, 'fig6.png'), format='png', dpi=200)

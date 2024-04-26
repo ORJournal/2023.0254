@@ -7,12 +7,12 @@ Author: Pedro Zattoni Scroccaro
 import time
 import numpy as np
 import gurobipy as gp
-from utils import L2, plot_results
-from os.path import dirname, abspath
+from utils import L2, save_results
+from os.path import dirname, abspath, join
 import sys
 
 path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
-sys.path.append(path_to_project + '\src')  # nopep8
+sys.path.append(join(path_to_project, 'src'))  # nopep8
 import main as iop
 
 np.random.seed(0)
@@ -559,4 +559,7 @@ results['x_diff_train_hist'] = x_diff_train_hist
 results['x_diff_test_hist'] = x_diff_test_hist
 results['obj_diff_train_hist'] = obj_diff_train_hist
 results['obj_diff_test_hist'] = obj_diff_test_hist
-plot_results(results)
+save_results(
+    results,
+    join(path_to_project, 'results', 'experiments_6_3_mixed_integer')
+)

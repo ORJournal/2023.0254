@@ -8,9 +8,8 @@ Author: Pedro Zattoni Scroccaro
 import numpy as np
 from gurobipy import Model, GRB, quicksum
 import matplotlib.pyplot as plt
+from os.path import join
 
-# colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33',
-#           '#a65628', '#f781bf']
 colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#808080',
           '#a65628', '#FFD700']
 
@@ -104,8 +103,8 @@ def mean_percentiles(data, p1=5, p2=95):
     return mean, perc1, perc2
 
 
-def plot_results(results):
-    """Plot results."""
+def save_results(results, folder):
+    """Save results."""
     approaches = results['approaches']
     N_list = results['N_list']
     theta_diff_hist = results['theta_diff_hist']
@@ -148,9 +147,9 @@ def plot_results(results):
         )
         plt.xlabel(r'Number of training examples', fontsize=14)
         plt.grid(visible=True)
-        # plt.legend(fontsize='14', loc='upper right')
         plt.legend(fontsize='12', loc='upper left')
         plt.tight_layout()
+        plt.savefig(join(folder, 'fig1.png'), format='png', dpi=200)
 
         plt.figure(2)
         plt.plot(N_list, x_diff_train_mean, c=color, label=approach)
@@ -164,9 +163,9 @@ def plot_results(results):
         )
         plt.xlabel(r'Number of training examples', fontsize=14)
         plt.grid(visible=True)
-        # plt.legend(fontsize='14', loc='upper right')
         plt.legend(fontsize='12', loc='lower left', ncol=1)
         plt.tight_layout()
+        plt.savefig(join(folder, 'fig2.png'), format='png', dpi=200)
 
         plt.figure(3)
         plt.plot(N_list, obj_diff_train_mean, c=color, label=approach)
@@ -181,9 +180,9 @@ def plot_results(results):
         )
         plt.xlabel(r'Number of training examples', fontsize=14)
         plt.grid(visible=True)
-        # plt.legend(fontsize='14', loc='upper right')
         plt.legend(fontsize='12', loc='lower left', ncol=1)
         plt.tight_layout()
+        plt.savefig(join(folder, 'fig3.png'), format='png', dpi=200)
 
         plt.figure(4)
         plt.plot(N_list, x_diff_test_mean, c=color, label=approach)
@@ -196,9 +195,9 @@ def plot_results(results):
         )
         plt.xlabel(r'Number of training examples', fontsize=14)
         plt.grid(visible=True)
-        # plt.legend(fontsize='14', loc='upper right')
         plt.legend(fontsize='12', loc='lower left', ncol=1)
         plt.tight_layout()
+        plt.savefig(join(folder, 'fig4.png'), format='png', dpi=200)
 
         plt.figure(5)
         plt.plot(N_list, obj_diff_test_mean, c=color, label=approach)
@@ -213,6 +212,6 @@ def plot_results(results):
         )
         plt.xlabel(r'Number of training examples', fontsize=14)
         plt.grid(visible=True)
-        # plt.legend(fontsize='14', loc='upper right')
         plt.legend(fontsize='12', loc='lower left', ncol=1)
         plt.tight_layout()
+        plt.savefig(join(folder, 'fig5.png'), format='png', dpi=200)

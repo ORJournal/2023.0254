@@ -7,18 +7,17 @@ https://archive.ics.uci.edu/dataset/16/breast+cancer+wisconsin+prognostic
 Author: Pedro Zattoni Scroccaro
 """
 
-
 import time
 import numpy as np
 import gurobipy as gp
 from sklearn import svm
 from sklearn import kernel_ridge
 from utils import mean_percentiles, L1
-from os.path import dirname, abspath
+from os.path import dirname, abspath, join
 import sys
 
 path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
-sys.path.append(path_to_project + '\src')  # nopep8
+sys.path.append(join(path_to_project, 'src'))  # nopep8
 import main as iop
 
 np.random.seed(0)
@@ -144,10 +143,10 @@ def dist_z(x1, x2):
 # %%%%%%%%%%%%%%%%%%%%%%%%%%% Simulation parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 train_test_slip = 0.1
-runs = 20
+runs = 2
 kappa = 10**3
 
-path_to_data = path_to_project + r'\data\wpbc_data.csv'
+path_to_data = join(path_to_project, 'data', 'wpbc_data.csv')
 
 print('')
 print(f'train_test_slip = {train_test_slip}')
@@ -199,24 +198,24 @@ for run in range(runs):
     z_diff_train_1_hist[run] = z_diff_train
     z_diff_test_1_hist[run] = z_diff_test
 
-    # ASL-yz
-    theta_IO = iop.mixed_integer_quadratic(dataset_train,
-                                           ('binary', 1, None),
-                                           phi1=phi1,
-                                           phi2=phi2,
-                                           dist_func_z=L1,
-                                           reg_param=kappa,
-                                           add_dist_func_y=True)
+    # # ASL-yz
+    # theta_IO = iop.mixed_integer_quadratic(dataset_train,
+    #                                        ('binary', 1, None),
+    #                                        phi1=phi1,
+    #                                        phi2=phi2,
+    #                                        dist_func_z=L1,
+    #                                        reg_param=kappa,
+    #                                        add_dist_func_y=True)
 
-    y_diff_train = iop.evaluate(theta_IO, dataset_train, FOP_MIQP, dist_y)
-    y_diff_test = iop.evaluate(theta_IO, dataset_test, FOP_MIQP, dist_y)
-    z_diff_train = iop.evaluate(theta_IO, dataset_train, FOP_MIQP, dist_z)
-    z_diff_test = iop.evaluate(theta_IO, dataset_test, FOP_MIQP, dist_z)
+    # y_diff_train = iop.evaluate(theta_IO, dataset_train, FOP_MIQP, dist_y)
+    # y_diff_test = iop.evaluate(theta_IO, dataset_test, FOP_MIQP, dist_y)
+    # z_diff_train = iop.evaluate(theta_IO, dataset_train, FOP_MIQP, dist_z)
+    # z_diff_test = iop.evaluate(theta_IO, dataset_test, FOP_MIQP, dist_z)
 
-    y_diff_train_2_hist[run] = y_diff_train
-    y_diff_test_2_hist[run] = y_diff_test
-    z_diff_train_2_hist[run] = z_diff_train
-    z_diff_test_2_hist[run] = z_diff_test
+    # y_diff_train_2_hist[run] = y_diff_train
+    # y_diff_test_2_hist[run] = y_diff_test
+    # z_diff_train_2_hist[run] = z_diff_train
+    # z_diff_test_2_hist[run] = z_diff_test
 
     # Scikit-learn: regression + classification
     reg = kernel_ridge.KernelRidge()

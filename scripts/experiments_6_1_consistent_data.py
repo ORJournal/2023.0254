@@ -10,13 +10,13 @@ import polytope as pc
 import cvxpy as cp
 import gurobipy as gp
 from utils import (
-    binary_linear_FOP, linear_ind_func, linear_phi, L2, plot_results
+    binary_linear_FOP, linear_ind_func, linear_phi, L2, save_results
 )
-from os.path import dirname, abspath
+from os.path import dirname, abspath, join
 import sys
 
 path_to_project = dirname(dirname(abspath(__file__)))  # nopep8
-sys.path.append(path_to_project + '\src')  # nopep8
+sys.path.append(join(path_to_project, 'src'))  # nopep8
 import main as iop
 
 np.random.seed(1)
@@ -441,4 +441,7 @@ results['x_diff_train_hist'] = x_diff_train_hist
 results['x_diff_test_hist'] = x_diff_test_hist
 results['obj_diff_train_hist'] = obj_diff_train_hist
 results['obj_diff_test_hist'] = obj_diff_test_hist
-plot_results(results)
+save_results(
+    results,
+    join(path_to_project, 'results', 'experiments_6_1_consistent_data')
+)
